@@ -16,22 +16,40 @@
 	}
 	.conter 
 		div {
-				display: flex;
-		
-	}
+			display: flex;
+			padding: 15px;
+			margin-bottom: 15px;
+			}
 	body{
 		background:red;
 	}
 	.container{
+		padding: 25px;
 		background: white;
+		margin-top: 150px	;
+		-webkit-box-shadow: 0px 9px 28px 36px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 9px 28px 36px rgba(0,0,0,0.75);
+box-shadow: 0px 9px 28px 36px rgba(0,0,0,0.75);
 	}
 	h2{
 		text-align: center;
 	}
-	.offset-1:first-of-type{
+	.headeeer:first-of-type{
 		background:grey;
 		font-weight: 900;
 		color:white;
+	}
+	div {
+		width: 100%;
+	}
+	div button:first-of-type {
+		margin-right: 70%;
+	}
+	div button:last-of-type {
+		margin-left: auto;
+	}
+	div button {
+		margin-bottom: 15px;
 	}
 </style>
 </head>
@@ -42,12 +60,13 @@
 			<h2>Musics</h2>
 		<div class="col-12 conter d-flex flex-row">
 
-					<div class="col-12 offset-1">
+					<div class="col-12 headeeer">
 						<div class="col-2">Title</div>
 						<div class="col-2">Artist</div>
 						<div class="col-2">Genre</div>
 						<div class="col-2">Edit</div>
 						<div class="col-2">Delete</div>
+						<div class="col-2">Youtube</div>
 					</div>
 
 					<div class="col-12 " th:each="music : ${musics}">
@@ -56,18 +75,18 @@
 						<div class="col-2"><span th:each="gen : ${music.genre}"> <span
 								th:text="${gen}"></span>
 						</span></div>
-						<div class="col-2"><a th:href="@{/edit/{id}(id=${music.id})}">Edit</a></div>
-						<div class="col-2"><a th:href="@{/delete/{id}(id=${music.id})}">Delete</a></div>
-						<div class="col-2"><a th:href="@{'https://www.youtube.com/results?search_query='+${music.title}+'+'+${music.artist}}">Listen at Youtube</a></div>
+						<div class="col-2"><a class="btn btn-info" th:href="@{/edit/{id}(id=${music.id})}">Edit</a></div>
+						<div class="col-2"><a class="btn btn-info" th:href="@{/delete/{id}(id=${music.id})}">Delete</a></div>
+						<div class="col-2"><a class="btn btn-info" th:href="@{'https://www.youtube.com/results?search_query='+${music.title}+'+'+${music.artist}}">Listen at Youtube</a></div>
 					</div>
 		
 		</div>
-		<p>
+		<div class="">
+	
 			<button type="button" class="btn btn-danger"><a href="/signup">Add a new music</a></button>
-		</p>
-		<p>
+		
 			<button type="button" class="btn btn-danger"><a href="https://www.youtube.com/feed/trending">Trending at Youtube</a>
-		</p>
+		</div>
 	</div>
 </body>
 </html>
