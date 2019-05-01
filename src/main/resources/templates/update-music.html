@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update-user</title>
+</head>
+<body>
+	<form action="#" th:action="@{/addmusic}" th:object="${music}" method="post">
+    <label for="title">Title</label>
+    <input type="text" th:field="*{title}" id="title" placeholder="Title">
+    <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+    <label for="artist">Artist</label>
+    <input type="text" th:field="*{Artist}" id="artist" placeholder="Artist">
+    <span th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}"></span>
+    <label for="genre">Genre</label>
+    <input type="text" th:field="*{genre}" id="genre" placeholder="Genre">
+    <span th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></span>
+    <input type="submit" value="Update Music">   
+</form>
+</body>
+</html>
